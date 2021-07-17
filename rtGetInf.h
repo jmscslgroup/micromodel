@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'micromodel'.
 //
-// Model version                  : 1.57
+// Model version                  : 1.59
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Sun Jul 11 15:16:18 2021
+// C/C++ source code generated on : Sat Jul 17 13:50:59 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
