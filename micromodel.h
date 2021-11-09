@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'micromodel'.
 //
-// Model version                  : 1.59
+// Model version                  : 3.170
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Sat Jul 17 13:50:59 2021
+// C/C++ source code generated on : Tue Nov  9 12:59:40 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -21,6 +21,8 @@
 #include <string.h>
 #include <stddef.h>
 #include "rtwtypes.h"
+#include "rtw_continuous.h"
+#include "rtw_solver.h"
 #include "slros_initialize.h"
 #include "micromodel_types.h"
 #include "rt_nonfinite.h"
@@ -37,38 +39,42 @@
 
 // Block signals (default storage)
 struct B_micromodel_T {
-  SL_Bus_micromodel_geometry_msgs_Twist In1;// '<S13>/In1'
-  SL_Bus_micromodel_geometry_msgs_Twist In1_p;// '<S12>/In1'
-  SL_Bus_micromodel_geometry_msgs_Twist BusAssignment;// '<Root>/Bus Assignment' 
+  SL_Bus_micromodel_geometry_msgs_Twist In1;// '<S11>/In1'
+  SL_Bus_micromodel_geometry_msgs_Twist In1_k;// '<S10>/In1'
+  SL_Bus_micromodel_geometry_msgs_Twist BusAssignment1;// '<Root>/Bus Assignment1' 
   SL_Bus_micromodel_ros_time_Time r;
   real_T v_des;
   real_T dv_minus;
   real_T dx_1;
   real_T dx_2;
   real_T dx_3;
-  SL_Bus_micromodel_std_msgs_Float64 In1_n;// '<S11>/In1'
+  real_T dx_5;
+  real_T dx_4;
+  SL_Bus_micromodel_std_msgs_Float64 In1_o;// '<S9>/In1'
 };
 
 // Block states (default storage) for system '<Root>'
 struct DW_micromodel_T {
-  ros_slros_internal_block_Curr_T obj; // '<Root>/Current Time'
-  ros_slros_internal_block_GetP_T obj_j;// '<Root>/Get Parameter6'
-  ros_slros_internal_block_GetP_T obj_a;// '<Root>/Get Parameter5'
-  ros_slros_internal_block_GetP_T obj_h;// '<Root>/Get Parameter4'
-  ros_slros_internal_block_GetP_T obj_p;// '<Root>/Get Parameter3'
-  ros_slros_internal_block_GetP_T obj_k;// '<Root>/Get Parameter2'
-  ros_slros_internal_block_GetP_T obj_c;// '<Root>/Get Parameter1'
-  ros_slroscpp_internal_block_P_T obj_ct;// '<S7>/SinkBlock'
-  ros_slroscpp_internal_block_P_T obj_f;// '<S6>/SinkBlock'
-  ros_slroscpp_internal_block_P_T obj_jz;// '<S5>/SinkBlock'
-  ros_slroscpp_internal_block_S_T obj_cg;// '<S10>/SourceBlock'
-  ros_slroscpp_internal_block_S_T obj_d;// '<S9>/SourceBlock'
-  ros_slroscpp_internal_block_S_T obj_m;// '<S8>/SourceBlock'
+  ros_slros_internal_block_Curr_T obj; // '<Root>/Current Time2'
+  ros_slros_internal_block_GetP_T obj_l;// '<Root>/Limit of Unsafe Zone3'
+  ros_slros_internal_block_GetP_T obj_i;// '<Root>/Limit of Unsafe Zone2'
+  ros_slros_internal_block_GetP_T obj_g;// '<Root>/Limit of Unsafe Zone1'
+  ros_slros_internal_block_GetP_T obj_a;// '<Root>/Get Parameter6'
+  ros_slros_internal_block_GetP_T obj_az;// '<Root>/Get Parameter5'
+  ros_slros_internal_block_GetP_T obj_c;// '<Root>/Get Parameter4'
+  ros_slroscpp_internal_block_P_T obj_f;// '<S5>/SinkBlock'
+  ros_slroscpp_internal_block_P_T obj_cy;// '<S4>/SinkBlock'
+  ros_slroscpp_internal_block_S_T obj_n;// '<S8>/SourceBlock'
+  ros_slroscpp_internal_block_S_T obj_o;// '<S7>/SourceBlock'
+  ros_slroscpp_internal_block_S_T obj_p;// '<S6>/SourceBlock'
   real_T Memory_PreviousInput;         // '<Root>/Memory'
+  real_T v_des2;                       // '<Root>/MATLAB Function1'
+  real_T v3;                           // '<Root>/MATLAB Function1'
   real_T d1;                           // '<Root>/MATLAB Function1'
   real_T d2;                           // '<Root>/MATLAB Function1'
   real_T time_avg_target[1280];        // '<Root>/MATLAB Function1'
   real_T t_length;                     // '<Root>/MATLAB Function1'
+  boolean_T v_des2_not_empty;          // '<Root>/MATLAB Function1'
   boolean_T time_avg_target_not_empty; // '<Root>/MATLAB Function1'
 };
 
@@ -77,44 +83,35 @@ struct P_micromodel_T_ {
   SL_Bus_micromodel_geometry_msgs_Twist Constant_Value;// Computed Parameter: Constant_Value
                                                           //  Referenced by: '<S1>/Constant'
 
-  SL_Bus_micromodel_geometry_msgs_Twist Constant_Value_g;// Computed Parameter: Constant_Value_g
-                                                            //  Referenced by: '<S2>/Constant'
-
-  SL_Bus_micromodel_geometry_msgs_Twist Constant_Value_h;// Computed Parameter: Constant_Value_h
-                                                            //  Referenced by: '<S3>/Constant'
-
   SL_Bus_micromodel_geometry_msgs_Twist Out1_Y0;// Computed Parameter: Out1_Y0
-                                                   //  Referenced by: '<S12>/Out1'
+                                                   //  Referenced by: '<S10>/Out1'
 
-  SL_Bus_micromodel_geometry_msgs_Twist Constant_Value_m;// Computed Parameter: Constant_Value_m
-                                                            //  Referenced by: '<S9>/Constant'
+  SL_Bus_micromodel_geometry_msgs_Twist Constant_Value_c;// Computed Parameter: Constant_Value_c
+                                                            //  Referenced by: '<S7>/Constant'
 
-  SL_Bus_micromodel_geometry_msgs_Twist Out1_Y0_e;// Computed Parameter: Out1_Y0_e
-                                                     //  Referenced by: '<S13>/Out1'
+  SL_Bus_micromodel_geometry_msgs_Twist Out1_Y0_d;// Computed Parameter: Out1_Y0_d
+                                                     //  Referenced by: '<S11>/Out1'
 
-  SL_Bus_micromodel_geometry_msgs_Twist Constant_Value_o;// Computed Parameter: Constant_Value_o
-                                                            //  Referenced by: '<S10>/Constant'
+  SL_Bus_micromodel_geometry_msgs_Twist Constant_Value_i;// Computed Parameter: Constant_Value_i
+                                                            //  Referenced by: '<S8>/Constant'
 
-  SL_Bus_micromodel_std_msgs_Float64 Out1_Y0_p;// Computed Parameter: Out1_Y0_p
-                                                  //  Referenced by: '<S11>/Out1'
+  SL_Bus_micromodel_std_msgs_Float64 Constant_Value_n;// Computed Parameter: Constant_Value_n
+                                                         //  Referenced by: '<S2>/Constant'
 
-  SL_Bus_micromodel_std_msgs_Float64 Constant_Value_j;// Computed Parameter: Constant_Value_j
-                                                         //  Referenced by: '<S8>/Constant'
+  SL_Bus_micromodel_std_msgs_Float64 Out1_Y0_k;// Computed Parameter: Out1_Y0_k
+                                                  //  Referenced by: '<S9>/Out1'
 
-  real_T Gain_Gain;                    // Expression: 1e-9
-                                          //  Referenced by: '<Root>/Gain'
+  SL_Bus_micromodel_std_msgs_Float64 Constant_Value_p;// Computed Parameter: Constant_Value_p
+                                                         //  Referenced by: '<S6>/Constant'
+
+  real_T Gain2_Gain;                   // Expression: 1e-9
+                                          //  Referenced by: '<Root>/Gain2'
 
   real_T Memory_InitialCondition;      // Expression: 0
                                           //  Referenced by: '<Root>/Memory'
 
-  real_T Constant_Value_i;             // Expression: 0
-                                          //  Referenced by: '<Root>/Constant'
-
-  real_T Constant1_Value;              // Expression: 0
+  real_T Constant1_Value;              // Expression: 1
                                           //  Referenced by: '<Root>/Constant1'
-
-  real_T Constant2_Value;              // Expression: 0
-                                          //  Referenced by: '<Root>/Constant2'
 
 };
 
@@ -199,19 +196,17 @@ extern "C" {
 //  Here is the system hierarchy for this model
 //
 //  '<Root>' : 'micromodel'
-//  '<S1>'   : 'micromodel/Blank Message'
-//  '<S2>'   : 'micromodel/Blank Message1'
-//  '<S3>'   : 'micromodel/Blank Message2'
-//  '<S4>'   : 'micromodel/MATLAB Function1'
-//  '<S5>'   : 'micromodel/Publish'
-//  '<S6>'   : 'micromodel/Publish1'
-//  '<S7>'   : 'micromodel/Publish2'
-//  '<S8>'   : 'micromodel/Subscribe'
-//  '<S9>'   : 'micromodel/Subscribe2'
-//  '<S10>'  : 'micromodel/Subscribe3'
-//  '<S11>'  : 'micromodel/Subscribe/Enabled Subsystem'
-//  '<S12>'  : 'micromodel/Subscribe2/Enabled Subsystem'
-//  '<S13>'  : 'micromodel/Subscribe3/Enabled Subsystem'
+//  '<S1>'   : 'micromodel/Blank Message1'
+//  '<S2>'   : 'micromodel/Blank Message2'
+//  '<S3>'   : 'micromodel/MATLAB Function1'
+//  '<S4>'   : 'micromodel/Publish1'
+//  '<S5>'   : 'micromodel/Publish2'
+//  '<S6>'   : 'micromodel/Subscribe6'
+//  '<S7>'   : 'micromodel/Subscribe7'
+//  '<S8>'   : 'micromodel/Subscribe8'
+//  '<S9>'   : 'micromodel/Subscribe6/Enabled Subsystem'
+//  '<S10>'  : 'micromodel/Subscribe7/Enabled Subsystem'
+//  '<S11>'  : 'micromodel/Subscribe8/Enabled Subsystem'
 
 #endif                                 // RTW_HEADER_micromodel_h_
 

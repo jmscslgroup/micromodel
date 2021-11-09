@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'micromodel'.
 //
-// Model version                  : 1.59
+// Model version                  : 3.170
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Sat Jul 17 13:50:59 2021
+// C/C++ source code generated on : Tue Nov  9 12:59:40 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -49,6 +49,17 @@ struct SL_Bus_micromodel_geometry_msgs_Twist
 
 #endif
 
+#ifndef DEFINED_TYPEDEF_FOR_SL_Bus_micromodel_std_msgs_Float64_
+#define DEFINED_TYPEDEF_FOR_SL_Bus_micromodel_std_msgs_Float64_
+
+// MsgType=std_msgs/Float64
+struct SL_Bus_micromodel_std_msgs_Float64
+{
+  real_T Data;
+};
+
+#endif
+
 #ifndef DEFINED_TYPEDEF_FOR_SL_Bus_micromodel_ros_time_Time_
 #define DEFINED_TYPEDEF_FOR_SL_Bus_micromodel_ros_time_Time_
 
@@ -57,17 +68,6 @@ struct SL_Bus_micromodel_ros_time_Time
 {
   real_T Sec;
   real_T Nsec;
-};
-
-#endif
-
-#ifndef DEFINED_TYPEDEF_FOR_SL_Bus_micromodel_std_msgs_Float64_
-#define DEFINED_TYPEDEF_FOR_SL_Bus_micromodel_std_msgs_Float64_
-
-// MsgType=std_msgs/Float64
-struct SL_Bus_micromodel_std_msgs_Float64
-{
-  real_T Data;
 };
 
 #endif
