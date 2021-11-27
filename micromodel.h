@@ -7,9 +7,9 @@
 //
 // Code generated for Simulink model 'micromodel'.
 //
-// Model version                  : 3.170
+// Model version                  : 3.171
 // Simulink Coder version         : 9.5 (R2021a) 14-Nov-2020
-// C/C++ source code generated on : Tue Nov  9 12:59:40 2021
+// C/C++ source code generated on : Fri Nov 26 20:34:01 2021
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)
@@ -110,7 +110,7 @@ struct P_micromodel_T_ {
   real_T Memory_InitialCondition;      // Expression: 0
                                           //  Referenced by: '<Root>/Memory'
 
-  real_T Constant1_Value;              // Expression: 1
+  real_T Constant1_Value;              // Expression: 0.0
                                           //  Referenced by: '<Root>/Constant1'
 
 };
